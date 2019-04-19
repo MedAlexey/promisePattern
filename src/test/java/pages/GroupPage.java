@@ -1,4 +1,11 @@
 package pages;
 
-public class GroupPage {
+import org.openqa.selenium.WebDriver;
+
+public class GroupPage extends BasePage{
+
+    @Override
+    void check(WebDriver driver) {
+
+    }
 }
