@@ -1,0 +1,11 @@
+.gradle
+.idea
+*.iml
+
+out
+build
+
+# файл с логином и паролем вида:
+#   login: abc
+#   password: 123
+config.txt
