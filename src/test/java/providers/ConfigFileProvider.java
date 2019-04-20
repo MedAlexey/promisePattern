@@ -35,6 +35,10 @@ public class ConfigFileProvider {
         return getContentByKeyWord("groupInWhichUserIsAdministrator");
     }
 
+    public String getGroupInWhichUserWaitingForConfirmation() {
+        return getContentByKeyWord("groupInWhichUserWaitingForConfirmation");
+    }
+
     // Поиск в конфигурационном файле значений по ключевому слову
     // Вид конфигурационного файла:
     //   ключевое слово: значение
