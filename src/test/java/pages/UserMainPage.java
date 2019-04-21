@@ -9,6 +9,11 @@ public class UserMainPage extends BasePage {
         super(driver);
     }
 
+    public GroupPage toGroup(String link){
+        driver.get(link);
+        return new GroupPage(driver);
+    }
+
     @Override
     void check(WebDriver driver) {
     }
