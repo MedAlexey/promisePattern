@@ -8,6 +8,11 @@ public class GroupPage extends BasePage{
         super(driver);
     }
 
+    public GroupPage openPage(String link){
+        driver.get(link);
+        return new GroupPage(driver);
+    }
+
     @Override
     void check(WebDriver driver) {
 

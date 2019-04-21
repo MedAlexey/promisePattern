@@ -10,33 +10,38 @@ import pages.UserMainPage;
 
 public class GroupTest extends BaseTest {
 
-    UserMainPage userPage;
+
 
     @Before
     public void setUp(){
         driver = new ChromeDriver();
         LoginPage userLogin = new LoginPage(driver);
-        userPage = userLogin.login(config.getLogin(),config.getPassword());
+        UserMainPage userPage = userLogin.login(config.getLogin(),config.getPassword());
+        userPage.checkLogin();
     }
 
     @Test
     public void testMember(){
-        GroupPage group = userPage.toGroup(config.getGroupInWichUserIsMember());
+        GroupPage group = new GroupPage(driver);
+        group.openPage(config.getGroupInWichUserIsMember());
     }
 
     @Test
     public void testNotMember(){
-        GroupPage group = userPage.toGroup(config.getGroupInWichUserIsNotMember());
+        GroupPage group = new GroupPage(driver);
+        group.openPage(config.getGroupInWichUserIsNotMember());
     }
 
     @Test
     public void testAdministrator(){
-        GroupPage group = userPage.toGroup(config.getGroupInWichUserIsAdmin());
+        GroupPage group = new GroupPage(driver);
+        group.openPage(config.getGroupInWichUserIsAdmin());
     }
 
     @Test
     public void testWaitingForConfirmation(){
-        GroupPage group = userPage.toGroup(config.getGroupInWhichUserWaitingForConfirmation());
+        GroupPage group = new GroupPage(driver);
+        group.openPage(config.getGroupInWhichUserWaitingForConfirmation());
     }
 
     @After
