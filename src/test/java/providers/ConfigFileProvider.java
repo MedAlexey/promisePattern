@@ -41,17 +41,17 @@ public class ConfigFileProvider {
 
     // Поиск в конфигурационном файле значений по ключевому слову
     // Вид конфигурационного файла:
-    //   ключевое слово: значение
+    //   ключевое слово = значение
     private String getContentByKeyWord(String keyWord) {
         String result = "";
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader(configFileName));
             String line = reader.readLine();
-            while (line != null && !line.toLowerCase().split(":")[0].equals(keyWord)) {
+            while (line != null && !line.split("=")[0].trim().equals(keyWord)) {
                 line = reader.readLine();
             }
-            result = (line == null) ? "" : line.split(":")[1].trim();
+            result = (line == null) ? "" : line.split("=")[1].trim();
 
             reader.close();
         } catch (IOException e) {
