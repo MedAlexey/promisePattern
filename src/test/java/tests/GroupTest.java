@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.GroupPage;
 import pages.LoginPage;
-import pages.UserMainPage;
 
 public class GroupTest extends BaseTest {
 
@@ -15,9 +14,7 @@ public class GroupTest extends BaseTest {
     @Before
     public void setUp(){
         driver = new ChromeDriver();
-        LoginPage userLogin = new LoginPage(driver);
-        UserMainPage userPage = userLogin.login(config.getLogin(),config.getPassword());
-        userPage.checkLogin();
+        new LoginPage(driver).login(config.getLogin(), config.getPassword()).checkLogin();
     }
 
     @Test

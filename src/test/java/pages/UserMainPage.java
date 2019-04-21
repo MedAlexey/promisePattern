@@ -5,15 +5,14 @@ import org.openqa.selenium.WebDriver;
 
 public class UserMainPage extends BasePage {
 
-    private static final By LOGO_LOCATOR = By.xpath("//*[contains(@id,'topPanelLeftCorner')]");
+    private static final By LOGO_LOCATOR = By.xpath(".//div [contains(@id,'topPanelLeftCorner')]");
 
     public UserMainPage(WebDriver driver) {
         super(driver);
     }
 
-   public GroupPage checkLogin(){
+   public void checkLogin(){
        this.check(driver);
-       return new GroupPage(driver);
     }
 
     @Override
