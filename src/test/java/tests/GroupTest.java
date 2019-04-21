@@ -1,5 +1,5 @@
 package tests;
 
-public class GroupTest {
+public class GroupTest extends BaseTest {
 
 }
