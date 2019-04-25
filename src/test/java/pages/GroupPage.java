@@ -23,7 +23,7 @@ public class GroupPage extends BasePage{
     }
 
     public Promise checkUserStatus() {
-        return new Promise();
+        return new Promise(driver);
     }
 
     @Override
