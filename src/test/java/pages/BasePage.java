@@ -17,8 +17,5 @@ public abstract class BasePage {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
-    protected BasePage() {
-    }
-
     abstract void check(WebDriver driver);
 }
