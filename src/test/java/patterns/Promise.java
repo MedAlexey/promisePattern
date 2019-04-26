@@ -16,22 +16,27 @@ public class Promise extends GroupPage{
         super(driver);
     }
 
+    //Пользователь состоит в группе
     public boolean inGroup(){
         return isElementPresent(IN_GROUP);
     }
 
-    public boolean joinGroup(){
+    //Пользователь не состоит в группе
+    public boolean notInGroup(){
         return isElementPresent(JOIN_GROUP);
     }
 
+    //Ожидание подтвержения запроса на добавление в закрытую группу
     public boolean sendRequest(){
         return isElementPresent(SEND_REQUEST);
     }
 
+    //Является ли пользователь администратором группы
     public boolean admin(){
         return isElementPresent(ADMIN);
     }
 
+    // Существует ли такой элемент
     private boolean isElementPresent(By by) {
         try {
             driver.findElement(by);
