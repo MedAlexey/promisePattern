@@ -11,10 +11,6 @@ public class UserMainPage extends BasePage {
         super(driver);
     }
 
-   public void checkLogin(){
-       this.check(driver);
-    }
-
     @Override
     void check(WebDriver driver) {
         driver.findElement(LOGO_LOCATOR);
