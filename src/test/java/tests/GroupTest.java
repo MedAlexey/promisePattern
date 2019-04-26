@@ -8,42 +8,39 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.GroupPage;
 import pages.LoginPage;
-import patterns.Promise;
 import providers.ConfigFileProvider;
 
 public class GroupTest {
 
     protected WebDriver driver;
     protected ConfigFileProvider config = new ConfigFileProvider("config.txt");
+    GroupPage group;
 
     @Before
     public void setUp(){
         driver = new ChromeDriver();
         new LoginPage(driver).login(config.getLogin(), config.getPassword()).checkLogin();
+        group = new GroupPage(driver);
     }
 
     @Test
     public void testMember(){
-        GroupPage group = new GroupPage(driver);
-        Assert.assertEquals(true, group.openPage(config.getGroupInWichUserIsMember()).checkUserStatus().inGroup());
+        Assert.assertTrue(group.openPage(config.getGroupInWichUserIsMember()).checkUserStatus().inGroup());
     }
 
     @Test
     public void testNotMember(){
-        GroupPage group = new GroupPage(driver);
-        Assert.assertEquals(true, group.openPage(config.getGroupInWichUserIsNotMember()).checkUserStatus().joinGroup());
+        Assert.assertTrue(group.openPage(config.getGroupInWichUserIsNotMember()).checkUserStatus().notInGroup());
     }
 
     @Test
     public void testAdministrator(){
-        GroupPage group = new GroupPage(driver);
-        Assert.assertEquals(true, group.openPage(config.getGroupInWichUserIsAdmin()).checkUserStatus().admin());
+        Assert.assertTrue(group.openPage(config.getGroupInWichUserIsAdmin()).checkUserStatus().admin());
     }
 
     @Test
     public void testWaitingForConfirmation(){
-        GroupPage group = new GroupPage(driver);
-        Assert.assertEquals(true, group.openPage(config.getGroupInWhichUserWaitingForConfirmation()).checkUserStatus().sendRequest());
+        Assert.assertTrue(group.openPage(config.getGroupInWhichUserWaitingForConfirmation()).checkUserStatus().sendRequest());
     }
 
     @After
