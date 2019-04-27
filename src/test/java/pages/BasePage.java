@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import patterns.Factory;
 
 import java.util.NoSuchElementException;
 
@@ -28,6 +29,10 @@ public abstract class BasePage {
         } catch (NoSuchElementException e) {
             return false;
         }
+    }
+
+    public BasePage open(String link) {
+        return Factory.openPage(driver, link);
     }
 
     public GroupPage openGroupPage(String link) {

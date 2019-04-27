@@ -15,7 +15,7 @@ public class UserIsAdministratorTest extends BaseGroupTest {
     public void setUp() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login(config.getLogin(), config.getPassword());
-        groupPage = loginPage.openGroupPage(config.getGroupInWichUserIsAdmin());
+        groupPage = (GroupPage) loginPage.open(config.getGroupInWichUserIsAdmin());
     }
 
     @Test
