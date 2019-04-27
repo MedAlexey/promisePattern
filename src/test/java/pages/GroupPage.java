@@ -16,14 +16,8 @@ public class GroupPage extends BasePage{
         super(driver);
     }
 
-    public GroupPage openPage(String link){
-        driver.get(link);
-        check(driver);
-        return new GroupPage(driver);
-    }
-
     public Promise checkUserStatus() {
-        return new Promise(driver);
+        return new Promise();
     }
 
     @Override

@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage extends BasePage  {
+public class LoginPage extends BasePage {
 
     private static final By LOGIN_LOCATOR = By.xpath(".//input[@name='st.email']");
     private static final By PASSWORD_LOCATOR = By.xpath(".//input[@name='st.password']");
@@ -15,13 +15,11 @@ public class LoginPage extends BasePage  {
         super(driver);
     }
 
-
     public UserMainPage login(String email, String password) {
-        driver.get(baseUrl + "/dk?st.cmd=anonymMain&st.layer.cmd=PopLayerClose");
-        this.check(driver);
-        driver.findElement(LOGIN_LOCATOR).sendKeys(email);
-        driver.findElement(PASSWORD_LOCATOR).sendKeys(password);
-        driver.findElement(SUBMIT_LOCATOR).click();
+        sendKeys(LOGIN_LOCATOR, email);
+        sendKeys(PASSWORD_LOCATOR, password);
+        click(SUBMIT_LOCATOR);
+
         return new UserMainPage(driver);
     }
 
